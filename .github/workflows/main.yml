@@ -10,3 +10,9 @@ jobs:
       - uses: ./action-a
         with:
           MY_NAME: "Mona"
+      - id: foo
+        uses: ./action-b
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
